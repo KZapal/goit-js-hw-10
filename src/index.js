@@ -1,6 +1,6 @@
 import Notiflix from "notiflix";
 import axios from "axios";
-import { fetchCatByBreed, fetchBreeds } from "./js/catapi.js";
+import { fetchCatByBreed, fetchBreeds } from "./catapi.js";
 
 const select = document.querySelector(`.breed-select`);
 const loader = document.querySelector(`.loader`);
