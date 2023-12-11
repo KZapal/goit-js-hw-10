@@ -517,16 +517,21 @@ const info = document.querySelector(`.cat-info`);
 (0, _axiosDefault.default).defaults.baseURL = "https://api.thecatapi.com/v1";
 loader.style.display = `none`;
 error.style.display = `none`;
+select.style.display = `none`;
 function showLoader() {
     loader.innerText = "";
     loader.style.display = "block";
 }
-hidenLoader();
+showLoader();
 error.style.display = "none";
 function hidenLoader() {
     loader.style.display = "none";
 }
 (0, _catapiJs.fetchBreeds)().then((data)=>{
+    select.style.cssText = `
+      text-align: "center";
+      `;
+    hidenLoader();
     const html = data.map((breed)=>`<option value="${breed.id}">${breed.name}</option>`);
     select.innerHTML = html;
 }).catch((error1)=>{
@@ -559,7 +564,7 @@ select.addEventListener("change", (ev)=>{
     });
 });
 
-},{"notiflix":"5z0Oc","axios":"jo6P5","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./catapi.js":"9d8U2"}],"5z0Oc":[function(require,module,exports) {
+},{"notiflix":"5z0Oc","axios":"jo6P5","./catapi.js":"9d8U2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"5z0Oc":[function(require,module,exports) {
 var global = arguments[3];
 /* Notiflix AIO (https://notiflix.github.io) - Version: 3.2.6 - Author: Furkan (https://github.com/furcan) - Copyright 2019 - 2023 Notiflix, MIT Licence (https://opensource.org/licenses/MIT) */ (function(t, e) {
     "function" == typeof define && define.amd ? define([], function() {

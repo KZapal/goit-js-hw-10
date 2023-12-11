@@ -13,11 +13,12 @@ axios.defaults.baseURL = "https://api.thecatapi.com/v1";
 
 loader.style.display = `none`;
 error.style.display = `none`;
+select.style.display = `none`;
 function showLoader() {
   loader.innerText = "";
   loader.style.display = "block";
 }
-hidenLoader();
+showLoader();
 error.style.display = "none";
 
 function hidenLoader() {
@@ -26,6 +27,10 @@ function hidenLoader() {
 
 fetchBreeds()
   .then((data) => {
+    select.style.cssText = `
+      text-align: "center";
+      `;
+    hidenLoader();
     const html = data.map(
       (breed) => `<option value="${breed.id}">${breed.name}</option>`
     );
